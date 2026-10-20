@@ -5,7 +5,7 @@ def f(x):
 
 a = -0.581
 b = -0.557
-sigma = 0.001
+accuracy = 0.001
 epsilon = 0.0001
 
 k = 0
@@ -28,8 +28,8 @@ print(
     f"{'':<12}"
     f"{'':<14}"
     f"{'':<14}"
-    f"{f'[{a:.6f}, {b:.6f}]':<24}"
-    f"{abs(b - a):<10.6f}"
+    f"{f'[{a:.4f}, {b:.4f}]':<24}"
+    f"{abs(b - a):<10.4f}"
 )
 
 while True:
@@ -53,19 +53,19 @@ while True:
 
     print(
         f"{k:<5}"
-        f"{x1:<12.6f}"
-        f"{x2:<12.6f}"
-        f"{fx1:<14.6f}"
-        f"{fx2:<14.6f}"
-        f"{f'[{a:.6f}, {b:.6f}]':<24}"
-        f"{length:<10.6f}"
+        f"{x1:<12.4f}"
+        f"{x2:<12.4f}"
+        f"{fx1:<14.4f}"
+        f"{fx2:<14.4f}"
+        f"{f'[{a:.4f}, {b:.4f}]':<24}"
+        f"{length:<10.4f}"
     )
 
-    if length <= sigma:
+    if length <= accuracy:
         break
 
 x_min = (a + b) / 2
 
 print()
-print(f"x* = {x_min:.6f}")
-print(f"f(x*) = {f(x_min):.6f}")
+print(f"x* = {x_min:.4f}")
+print(f"f(x*) = {f(x_min):.4f}")

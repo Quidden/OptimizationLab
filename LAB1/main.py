@@ -32,24 +32,21 @@ while True:
     else:
         condition = "Yes" if fx < f(prev_x) else "No"
 
-    # Пока конечный интервал ещё не найден,
-    # показываем текущий охваченный диапазон
     current_a = min(points)
     current_b = max(points)
 
     print(
         f"{k:<5}"
-        f"{delta:<12.6f}"
-        f"{x:<12.6f}"
-        f"{fx:<14.6f}"
+        f"{delta:<12.4f}"
+        f"{x:<12.4f}"
+        f"{fx:<14.4f}"
         f"{condition:<22}"
-        f"{f'[{current_a:.6f}, {current_b:.6f}]':<24}"
+        f"{f'[{current_a:.4f}, {current_b:.4f}]':<24}"
     )
 
     next_x = x + direction * delta
     next_fx = f(next_x)
 
-    # Если функция начала расти — минимум уже окружён
     if fx < next_fx:
         if k == 0:
             direction *= -1
@@ -67,11 +64,11 @@ while True:
 
             print(
                 f"{k:<5}"
-                f"{delta:<12.6f}"
-                f"{next_x:<12.6f}"
-                f"{next_fx:<14.6f}"
+                f"{delta:<12.4f}"
+                f"{next_x:<12.4f}"
+                f"{next_fx:<14.4f}"
                 f"{'No':<22}"
-                f"{f'[{a0:.6f}, {b0:.6f}]':<24}"
+                f"{f'[{a0:.4f}, {b0:.4f}]':<24}"
             )
             break
 
