@@ -6,8 +6,8 @@ def f(x):
 
 x1 = -0.581
 step = 0.001
-accuracy = 0.00001
-accuracy_f = 0.00001
+accuracy = 0.0001
+accuracy_f = 0.0001
 
 x2 = x1 + step
 fx1 = f(x1)
@@ -24,9 +24,7 @@ header = (
     f"{'xt':>11}  {'f(xt)':>12}"
 )
 
-print("Таблиця 4.7 - Результати пошуку методом Пауелла")
 print(header)
-print("-" * len(header))
 
 k = 1
 
@@ -64,8 +62,8 @@ while True:
 
     print(
         f"{k:<4}  {x1:>11.6f}  {x2:>11.6f}  {x3:>11.6f}  "
-        f"{fx1:>12.8f}  {fx2:>12.8f}  {fx3:>12.8f}  "
-        f"{xt:>11.6f}  {fxt:>12.8f}"
+        f"{fx1:>12.6f}  {fx2:>12.6f}  {fx3:>12.6f}  "
+        f"{xt:>11.6f}  {fxt:>12.6f}"
     )
 
     if abs(xt - xmin) <= accuracy and abs(fxt - fmin) <= accuracy_f:
@@ -80,5 +78,4 @@ while True:
 
     k += 1
 
-print("x* =", xt,
-      "f(x*) =", fxt)
+print(f"x* = {xt:.6f} f(x*) = {fxt:.6f}")

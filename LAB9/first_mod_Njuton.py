@@ -26,7 +26,7 @@ while True:
     df_temp = df(tempx)
     fx = f(tempx)
 
-    print(f"{k:<5} {tempx:>12.8f} {df_temp:>14.8f}")
+    print(f"{k:<5} {tempx:>12.6f} {df_temp:>14.6f}")
 
     if abs(df_temp) <= accuracy:
         break
@@ -34,5 +34,5 @@ while True:
     tempx = tempx - df_temp / DFF
     k += 1
 
-print("x* =", tempx)
-print("f(x*) =", f(tempx))
+print(f"x* = {tempx:.6f}")
+print(f"f(x*) = {f(tempx):.6f}")

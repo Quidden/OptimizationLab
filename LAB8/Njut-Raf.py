@@ -15,7 +15,7 @@ k = 0
 r = 0.5
 
 header = (
-    "{:<5} {:>12} {:>7} {:>12} {:>12} {:>12} {:>12} {:>12} {:>12}"
+    "{:<5} {:>12} {:>12} {:>12} {:>12} {:>12} {:>12} {:>12} {:>12}"
     .format("k", "xk", "alpha", "f(xk)", "f'(xk)",
             "f''(xk)", "xt", "f(xt)", "f'(xt)")
 )
@@ -24,8 +24,8 @@ print(header)
 print("-" * len(header))
 
 print(
-    f"{k:<5} {x1:>12.8f} {'-':>7} {f(x1):>12.8f} "
-    f"{df(x1):>12.8f} {ddf(x1):>12.8f} "
+    f"{k:<5} {x1:>12.6f} {'-':>12} {f(x1):>12.6f} "
+    f"{df(x1):>12.6f} {ddf(x1):>12.6f} "
     f"{'-':>12} {'-':>12} {'-':>12}"
 )
 
@@ -49,9 +49,9 @@ while True:
         right = -r * a * (df_temp**2 / dff_temp)
 
         print(
-            f"{k:<5} {x1:>12.8f} {a:>7.3f} {fx:>12.8f} "
-            f"{df_temp:>12.8f} {dff_temp:>12.8f} "
-            f"{x1_temp:>12.8f} {fxt:>12.8f} {dfxt:>12.8f}"
+            f"{k:<5} {x1:>12.6f} {a:>12g} {fx:>12.6f} "
+            f"{df_temp:>12.6f} {dff_temp:>12.6f} "
+            f"{x1_temp:>12.6f} {fxt:>12.6f} {dfxt:>12.6f}"
         )
 
         if abs(dfxt) <= accuracy or left <= right:
@@ -60,8 +60,6 @@ while True:
         else:
             a = a / 2
 
-            if a < 1e-12:
-                raise RuntimeError("Step is too small")
 
-print("x* =", x1)
-print("f(x*) =", f(x1))
+print(f"x* = {x1:.6f}")
+print(f"f(x*) = {f(x1):.6f}")
